@@ -2,11 +2,11 @@ package laborator;
 
 import java.util.concurrent.TimeUnit;
 
-public class Image extends Element implements Picture{
+public class ImageProxy extends Element implements Picture{
 
 	private String url;
-	
-	public Image(String url) {
+	protected Image realImage = new Image(null);
+	public ImageProxy(String url) {
 		this.url = url;
 		try {
 			TimeUnit.SECONDS.sleep(5);
@@ -17,32 +17,36 @@ public class Image extends Element implements Picture{
 	@Override
 	public void print() {
 		System.out.println("Imagine with name: "+this.url);
+		this.realImage = new Image(this.url);
 	}
 	@Override
 	public void add(Element el) {
-		// TODO Auto-generated method stub
+		
 	}
 	@Override
 	public void remove(Element el) {
-		// TODO Auto-generated method stub
+		
 	}
 	@Override
 	public Element get(int elNumber) {
-		// TODO Auto-generated method stub
+		
 		return null;
 	}
 	@Override
 	public String getUrl() {
-		return url;
-	}
-
-	public void setUrl(String url) {
-		this.url = url;
+		
+		return this.url;
 	}
 	@Override
 	public String pictureContent() {
-		
 		return "Contents of the image";
 	}
 	
+	public Image loadImage() {
+		if(this.realImage == null) {
+			this.realImage = new Image(this.url);
+		}
+		return this.realImage;
+	}
+
 }
