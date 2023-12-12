@@ -28,9 +28,12 @@ public class Paragraph extends Element{
 	public String getText() {
 		return text;
 	}
-
 	public void setText(String text) {
 		this.text = text;
+	}
+	@Override
+	public void accept(Visitor v) {
+		v.visitParagraph(this);
 	}
 	
 }

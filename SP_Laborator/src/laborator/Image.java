@@ -44,5 +44,9 @@ public class Image extends Element implements Picture{
 		
 		return "Contents of the image";
 	}
+	@Override
+	public void accept(Visitor v) {
+		v.visitImage(this);
+	}
 	
 }

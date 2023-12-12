@@ -30,6 +30,11 @@ public class Table extends Element{
 	public void setTitle(String title) {
 		this.title = title;
 	}
+	@Override
+	public void accept(Visitor v) {
+		v.visitTable(this);
+		
+	}
 	
 	
 }

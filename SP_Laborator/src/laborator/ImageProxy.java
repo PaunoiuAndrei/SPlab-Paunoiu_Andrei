@@ -48,5 +48,9 @@ public class ImageProxy extends Element implements Picture{
 		}
 		return this.realImage;
 	}
+	@Override
+	public void accept(Visitor v) {
+		v.visitImageProxy(this);
+	}
 
 }
