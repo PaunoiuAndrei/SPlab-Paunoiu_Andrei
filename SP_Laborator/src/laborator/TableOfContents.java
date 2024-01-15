@@ -19,7 +19,7 @@ public class TableOfContents extends Element{
 	}
 	@Override
 	public void add(Element el) {
-		
+		this.table.add(el.toString());
 	}
 	@Override
 	public void remove(Element el) {

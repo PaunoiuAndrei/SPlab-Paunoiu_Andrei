@@ -12,7 +12,7 @@ public class Section extends Element{
 	
 	@Override
 	public void print() {
-		System.out.println(this.title);
+		System.out.println("\n"+this.title+"\n");
 	}
 	@Override
 	public void add(Element el) {
