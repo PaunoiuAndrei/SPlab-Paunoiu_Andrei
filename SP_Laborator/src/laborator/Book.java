@@ -7,9 +7,11 @@ public class Book extends Element{
 	public String title;
 	public ArrayList<Author> authors = new ArrayList<>();
 	public ArrayList<Element> content = new ArrayList<>();
+	public int pageNumber;
 	
 	public Book(String title) {
 		this.title=title;
+		this.pageNumber = 1;
 	}
 	@Override
 	public void print() {
@@ -18,9 +20,8 @@ public class Book extends Element{
 		for(Author ath: this.authors) {
 			ath.print();
 		}
-		System.out.println();
 		for(Element cont: this.content) {
-			cont.print();
+			cont.accept(new RenderContentVisitor());
 		}
 	}
 	
